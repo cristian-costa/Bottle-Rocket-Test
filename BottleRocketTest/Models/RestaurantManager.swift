@@ -13,18 +13,22 @@ protocol RestaurantManagerDelegate {
 }
 
 struct RestaurantManager {
+    //MARK: - Variables
+    
     var delegate: RestaurantManagerDelegate?
     let urlAPI: String = "https://s3.amazonaws.com/br-codingexams/restaurants.json"
+    
+    //MARK: - Func
     
     func fetchRestaurant() {
         performRequest(with: urlAPI)
     }
     
-    //fetch
+    //Fetch
     func performRequest(with urlString: String) {
-        if let url = URL(string: urlString) {
+        if let URL = URL(string: urlString) {
             let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { data, response, error in
+            let task = session.dataTask(with: URL) { data, response, error in
                 if error != nil {
                     self.delegate?.didFailWithError(error: error!)
                     return
@@ -40,7 +44,7 @@ struct RestaurantManager {
         }
     }
     
-    //return data
+    //Return data
     func parseJSON(_ restaurantData: Data) -> [RestaurantModel]? {
         let decoder = JSONDecoder()
         var restaurants = [RestaurantModel]()

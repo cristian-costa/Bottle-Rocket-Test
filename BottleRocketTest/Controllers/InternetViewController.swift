@@ -9,6 +9,8 @@ import UIKit
 import WebKit
 
 class InternetViewController: UIViewController, WKNavigationDelegate {
+    //MARK: - Variables
+    
     private let webView: WKWebView = {
         let webView = WKWebView()
         let url = URL(string: "https://www.bottlerocketstudios.com/")
@@ -17,7 +19,9 @@ class InternetViewController: UIViewController, WKNavigationDelegate {
         webView.load(URLRequest(url: url!))
         return webView
     }()
-        
+    
+    //MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         webView.navigationDelegate = self
@@ -25,6 +29,7 @@ class InternetViewController: UIViewController, WKNavigationDelegate {
         addConstraints()
     }
     
+    //MARK: - IBAction
     @IBAction func backBtnPressed(_ sender: Any) {
         webView.goBack()
     }
@@ -37,7 +42,8 @@ class InternetViewController: UIViewController, WKNavigationDelegate {
         webView.reload()
     }
     
-    func addConstraints() {
+    //MARK: - Private
+    private func addConstraints() {
         var constraints = [NSLayoutConstraint]()
 
         //Add

@@ -8,6 +8,8 @@
 import UIKit
 
 class RestaurantModel {
+    //MARK: - Variables
+    
     private let name: String
     private let category: String
     private let image: String
@@ -16,6 +18,8 @@ class RestaurantModel {
     private let adress: [String]
     private let lat: Double
     private let lng: Double
+    
+    //MARK: - Init
     
     init(na: String, ca: String, im: String, ph: String, tw: String, ad: [String], lati: Double, long: Double) {
         name = na
@@ -27,6 +31,8 @@ class RestaurantModel {
         lat = lati
         lng = long
     }
+    
+    //MARK: - Getters
     
     func getName() -> String {
         return name

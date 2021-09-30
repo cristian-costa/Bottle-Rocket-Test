@@ -20,6 +20,7 @@
 		403B5C222702A177005D49A7 /* RestaurantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B5C212702A177005D49A7 /* RestaurantManager.swift */; };
 		403B5C2727037ECA005D49A7 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B5C2627037ECA005D49A7 /* CustomImageView.swift */; };
 		403B5C292703AF3A005D49A7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B5C282703AF3A005D49A7 /* DetailViewController.swift */; };
+		40EF3419270546FD00DC192E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EF3418270546FD00DC192E /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		403B5C212702A177005D49A7 /* RestaurantManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantManager.swift; sourceTree = "<group>"; };
 		403B5C2627037ECA005D49A7 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		403B5C282703AF3A005D49A7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		40EF3418270546FD00DC192E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				403B5C1627028822005D49A7 /* LunchTymeViewController.swift */,
 				403B5C182702886A005D49A7 /* InternetViewController.swift */,
 				403B5C282703AF3A005D49A7 /* DetailViewController.swift */,
+				40EF3418270546FD00DC192E /* MapViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40EF3419270546FD00DC192E /* MapViewController.swift in Sources */,
 				403B5C1727028822005D49A7 /* LunchTymeViewController.swift in Sources */,
 				403B5C2727037ECA005D49A7 /* CustomImageView.swift in Sources */,
 				403B5C1B27028B77005D49A7 /* CustomCollectionViewCell.swift in Sources */,

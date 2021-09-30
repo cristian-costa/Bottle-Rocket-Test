@@ -9,9 +9,8 @@ import UIKit
 import MapKit
 
 class DetailViewController: UIViewController {
-    var restaurant: RestaurantModel?
-    
     //MARK: - IBOutlet
+    
     @IBOutlet private weak var mapView: MKMapView!
     @IBOutlet private weak var restaurantName: UILabel!
     @IBOutlet private weak var categoryName: UILabel!
@@ -20,13 +19,27 @@ class DetailViewController: UIViewController {
     @IBOutlet private weak var phone: UILabel!
     @IBOutlet private weak var twitter: UILabel!
     
+    //MARK: - Variables
+    
+    var restaurant: RestaurantModel?
+    
+    //MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateMap()
         updateUI()
     }
     
-    func updateUI(){
+    //MARK: - IBAction
+    
+    @IBAction func backButton(_ sender: Any) {
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    //MARK: - Private
+    
+    private func updateUI(){
         if let restaurantSafe = restaurant {
             restaurantName.text = restaurantSafe.getName()
             categoryName.text = restaurantSafe.getCategory()
@@ -43,7 +56,7 @@ class DetailViewController: UIViewController {
         }
     }
     
-    func updateMap() {
+    private func updateMap() {
         if let restaurantSafe = restaurant {
             let location = CLLocationCoordinate2D(latitude: restaurantSafe.getLatLng()[0], longitude: restaurantSafe.getLatLng()[1])
             let span = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
@@ -55,9 +68,5 @@ class DetailViewController: UIViewController {
             mapView.setRegion(region, animated: true)
             mapView.addAnnotation(pin)
         }
-    }
-    
-    @IBAction func backButton(_ sender: Any) {
-        _ = self.navigationController?.popViewController(animated: true)
     }
 }
