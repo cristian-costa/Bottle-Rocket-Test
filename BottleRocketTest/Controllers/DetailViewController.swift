@@ -28,15 +28,15 @@ class DetailViewController: UIViewController {
     
     func updateUI(){
         if let restaurantSafe = restaurant {
-            restaurantName.text = restaurantSafe.name
-            categoryName.text = restaurantSafe.category
-            adress.text = restaurantSafe.adress[0]
-            if restaurantSafe.adress.count > 0 {
-                cityState.text = restaurantSafe.adress[1]
+            restaurantName.text = restaurantSafe.getName()
+            categoryName.text = restaurantSafe.getCategory()
+            adress.text = restaurantSafe.getAdress()[0]
+            if restaurantSafe.getAdress().count > 0 {
+                cityState.text = restaurantSafe.getAdress()[1]
             }
-            phone.text = restaurantSafe.phone
-            if restaurantSafe.twitter != "" {
-                twitter.text = ("@\(restaurantSafe.twitter)")
+            phone.text = restaurantSafe.getPhone()
+            if restaurantSafe.getTwitter() != "" {
+                twitter.text = ("@\(restaurantSafe.getTwitter())")
             } else {
                 twitter.text = ""
             }
@@ -45,13 +45,13 @@ class DetailViewController: UIViewController {
     
     func updateMap() {
         if let restaurantSafe = restaurant {
-            let location = CLLocationCoordinate2D(latitude: restaurantSafe.lat, longitude: restaurantSafe.lng)
+            let location = CLLocationCoordinate2D(latitude: restaurantSafe.getLatLng()[0], longitude: restaurantSafe.getLatLng()[1])
             let span = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
             let region = MKCoordinateRegion(center: location, span: span)
-            
+
             let pin = MKPointAnnotation()
             pin.coordinate = location
-            
+
             mapView.setRegion(region, animated: true)
             mapView.addAnnotation(pin)
         }

@@ -25,9 +25,9 @@ class LunchTymeViewController: UICollectionViewController, UICollectionViewDeleg
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = UICollectionViewCell()
         if let safeCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CustomCollectionViewCell {
-            let name = restaurantsArray[indexPath.row].name
-            let category = restaurantsArray[indexPath.row].category
-            if let safeURL = URL(string: restaurantsArray[indexPath.row].image) {
+            let name = restaurantsArray[indexPath.row].getName()
+            let category = restaurantsArray[indexPath.row].getCategory()
+            if let safeURL = URL(string: restaurantsArray[indexPath.row].getImage()) {
                 safeCell.imgRestaurant.loadImage(from: safeURL)
             }
             safeCell.configure(restaurant: name, category: category)
@@ -36,6 +36,7 @@ class LunchTymeViewController: UICollectionViewController, UICollectionViewDeleg
         return cell
     }
     
+    //Set Responsive Cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if view.frame.width <= 428 {
             return CGSize(width: view.frame.width, height: 180)

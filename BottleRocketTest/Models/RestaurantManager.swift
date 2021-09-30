@@ -20,6 +20,7 @@ struct RestaurantManager {
         performRequest(with: urlAPI)
     }
     
+    //fetch
     func performRequest(with urlString: String) {
         if let url = URL(string: urlString) {
             let session = URLSession(configuration: .default)
@@ -39,6 +40,7 @@ struct RestaurantManager {
         }
     }
     
+    //return data
     func parseJSON(_ restaurantData: Data) -> [RestaurantModel]? {
         let decoder = JSONDecoder()
         var restaurants = [RestaurantModel]()
@@ -95,7 +97,7 @@ struct RestaurantManager {
                 }
                 
                 //init
-                let restaurant = RestaurantModel(name: name, category: category, image: image, phone: phoneNumber, twitter: twitter, adress: adress, lat: latitude, lng: longitude)
+                let restaurant = RestaurantModel(na: name, ca: category, im: image, ph: phoneNumber, tw: twitter, ad: adress, lati: latitude, long: longitude)
                 
                 restaurants.append(restaurant)
             }
